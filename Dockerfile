@@ -12,5 +12,11 @@ RUN wget https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
 RUN echo 'mono --runtime=v4.0 /build/nuget.exe $*' > nuget
 RUN chmod +x nuget
 
+COPY build.sh .
+COPY preload.cake .
+RUN chmod +x build.sh
+RUN ./build.sh -s preload.cake
+
 WORKDIR /usr/bin
 RUN ln -s /build/nuget
+RUN ln -s /build/build.sh cake
