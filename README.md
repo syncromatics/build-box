@@ -10,7 +10,7 @@ This image is based on the `microsoft/dotnet:2-sdk` Docker image, so it includes
 
 ### Mono
 
-The `mono-complete` package, version 5.2.0.215-0xamarin10+debian8b1, is installed.
+The `mono-complete` package, version 5.0.1.1, is installed.
 
 ### Cake Build
 
