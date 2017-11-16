@@ -18,6 +18,7 @@ COPY build.sh .
 COPY preload.cake .
 RUN chmod +x build.sh
 RUN ./build.sh -s preload.cake
+RUN ln -s /usr/lib/x86_64-linux-gnu/libgit2.so tools/Addins/cake.git/Cake.Git/lib/linux/x86_64/libgit2-1196807.so
 
 WORKDIR /usr/bin
 RUN ln -s /build/nuget
