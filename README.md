@@ -20,7 +20,6 @@ A Cake build script and several commonly-used tools and addins are pre-installed
 * Cake.Docker
 * Cake.FileHelpers
 * Cake.Git
-    * Note: this image is built with a workaround for using the system-installed `libgit2` binary instead of the package-installed version.
 * Cake.Testing
 * SharpZipLib
 * xunit.runner.console
