@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export SYNC_VERSION=$(gitver | jq '.FullSemVer' -r)
+export SYNC_DOCKER_VERSION=$(echo $SYNC_VERSION | sed 's/\+/./')
+
+echo "---------------------------------------------------------------"
+echo "Sync Version is $SYNC_VERSION"
+echo "Sync Docker Version is $SYNC_DOCKER_VERSION"
+echo "---------------------------------------------------------------"
+echo ""
+echo ""
+echo ""
