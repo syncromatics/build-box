@@ -27,3 +27,5 @@ RUN ./setup.sh
 WORKDIR /usr/bin
 RUN ln -s /build/nuget
 RUN ln -s /build/build.sh cake
+
+RUN alias SYNC_VERSION="gitver | jq '.FullSemVer' -r"
