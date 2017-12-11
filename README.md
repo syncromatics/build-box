@@ -10,7 +10,7 @@ This image is based on the `microsoft/dotnet:2-sdk` Docker image, so it includes
 
 ### Mono
 
-The `mono-complete` package, version 5.0.1.1, is installed.
+The `mono-complete` package, version 5.4.1, is installed.
 
 ### Cake Build
 
@@ -32,3 +32,7 @@ When running a Cake target inside this container, use `cake` instead of your rep
 ### NuGet
 
 A copy of the NuGet CLI, version 4.3.0, is available on the PATH as `nuget`.
+
+### Xamarin Android
+
+To build a Xamarin Android project simple use `xabuild` in place of msbuild. 

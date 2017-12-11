@@ -1,10 +1,12 @@
 FROM microsoft/dotnet:2-sdk
 
-ENV MONO_VERSION 5.0.1.1
+ENV MONO_VERSION 5.4.1
 ENV DOCKER_HOST=tcp://docker:2375
+ENV ANDROID_SDK_PATH=/root/android-toolchain/sdk/
+ENV ANDROID_NDK_PATH=/root/android-toolchain/ndk/
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-RUN echo "deb http://download.mono-project.com/repo/debian jessie/snapshots/$MONO_VERSION main" > /etc/apt/sources.list.d/mono-official.list
+RUN echo "deb http://download.mono-project.com/repo/debian stretch/snapshots/$MONO_VERSION main" > /etc/apt/sources.list.d/mono-official.list
 RUN apt-get update
 RUN apt-get install -y mono-complete socat libgit2-dev unzip libssl1.0 libcurl3 jq
 RUN mozroots --import --sync
@@ -27,6 +29,10 @@ RUN chmod +x /usr/bin/get_versions
 
 RUN ./build.sh -s preload.cake
 RUN ./setup.sh
+
+COPY setup_android.sh .
+RUN chmod +x setup_android.sh
+RUN ./setup_android.sh
 
 WORKDIR /usr/bin
 RUN ln -s /build/nuget
